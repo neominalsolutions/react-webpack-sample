@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './index.css';
+import './index.scss';
 import img from './assets/img/logo.png';
-import * as styles from './index.module.css';
+import * as styles from './index.module.scss';
 
 // boostrapt component
 const App: React.FC = () => {
