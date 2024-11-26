@@ -16,6 +16,18 @@ module.exports = {
 				exclude: /node_modules/,
 				use: 'babel-loader',
 			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
+				test: /\.(ico|jpe?g|png|gif|webp|svg|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+				use: [
+					{
+						loader: 'file-loader',
+					},
+				],
+			},
 		],
 	},
 	plugins: [new htmlWebpackPlugin({ template: './src/index.html' })],
