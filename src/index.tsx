@@ -10,10 +10,10 @@ const App: React.FC = () => {
 	console.log('styles', styles);
 
 	return (
-		<div className="App">
+		<div className="App text-center text-4xl">
 			Merhaba, Dünya2!
 			<img src={img} />
-			<p className={styles.textColor}>Css Module</p>
+			<p className={`${styles.textColor} bg-cyan-300`}>Css Module</p>
 			<p className={styles['textColor']}>Css Module2</p>
 		</div>
 	);
