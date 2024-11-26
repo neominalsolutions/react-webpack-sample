@@ -4,23 +4,34 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import img from './assets/img/logo.png';
 import * as styles from './index.module.scss';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Sitelayout from './layouts/site.layout';
+import Adminlayout from './layouts/admin.layout';
 
-// boostrapt component
-const App: React.FC = () => {
-	console.log('styles', styles);
-
-	return (
-		<div className="App">
-			Merhaba, Dünya2!
-			<img src={img} />
-			<p className={styles.textColor}>Css Module</p>
-			<p className={styles['textColor']}>Css Module2</p>
-		</div>
-	);
-};
+const router = createBrowserRouter([
+	{
+		path: '',
+		Component: Sitelayout,
+		children: [
+			{
+				path: '/',
+				element: <>Home Page</>,
+			},
+			{
+				path: '/about',
+				element: <>About Page</>,
+			},
+		],
+	},
+	{
+		path: 'admin',
+		Component: Adminlayout,
+		children: [],
+	},
+]);
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 
-root.render(<App />);
+root.render(<RouterProvider router={router}></RouterProvider>);
